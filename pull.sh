@@ -1,4 +1,4 @@
-cd 
+cd /home/me 
 cp -r blog/* haojie7366/
 cd haojie7366
 git add --all
