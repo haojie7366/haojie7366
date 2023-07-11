@@ -145,6 +145,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/05/05%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/05/05%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" class="post-title-link" itemprop="url">文件共享管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-05 00:02:00 / 修改时间：11:36:39" itemprop="dateCreated datePublished" datetime="2023-07-05T00:02:00+08:00">2023-07-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="离线下载"><a href="#离线下载" class="headerlink" title="离线下载"></a>离线下载</h1><p>离线下载用到的软件是aria2和AriaNG</p>
+<h2 id="安装配置aria2"><a href="#安装配置aria2" class="headerlink" title="安装配置aria2"></a>安装配置aria2</h2><ol>
+<li>运行<code>sudo apt install aria2</code>安装aria2</li>
+<li>运行<code>mkdir $HOME/aira2</code></li>
+<li>运行<code>vim $HOME/aria2/aria2.conf</code>包含<a href="/images/aria2.conf">aria2.conf</a>文件下的内容</li>
+<li>在aria2.conf的最后一行<code>bt-tracker=</code>后面需要加上tracker服务器的地址。可以在github上搜索tracker，或者直接打开这两个网址  <a target="_blank" rel="noopener" href="https://github.com/XIU2/TrackersListCollection/blob/master/README-ZH.md">https://github.com/XIU2/TrackersListCollection/blob/master/README-ZH.md</a>  <a target="_blank" rel="noopener" href="https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/best_aria2.txt">https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/best_aria2.txt</a></li>
+<li>运行<code>aria2c --conf-path=$HOME/aria2/aria2.conf &gt;&gt;/dev/null &amp;</code>启动aria2</li>
+</ol>
+<h2 id="安装配置AriaNg"><a href="#安装配置AriaNg" class="headerlink" title="安装配置AriaNg"></a>安装配置AriaNg</h2><ol>
+<li>运行<code>sudo apt install apache2</code></li>
+<li>复制<a href="/images/AriaNg.tar.gz">AriaNg.tar.gz</a>这个文件的下载链接<img src="/images/6.jpg" alt="复制方式"></li>
+<li>运行<code>wget 下载链接</code>下载文件</li>
+<li>运行<code>sudo tar xfz AriaNg.tar.gz -C /var/www/html</code>解压文件到&#x2F;var&#x2F;www&#x2F;html目录</li>
+</ol>
+<h2 id="离线下载-1"><a href="#离线下载-1" class="headerlink" title="离线下载"></a>离线下载</h2><p>用windows电脑或者安卓手机打开网页，在地址栏中输入服务器的ip地址<img src="/images/3.png" alt="离线下载"><br>点击新建，就可以使用离线下载了，下载文件的存放目录由aria2.conf内的<code>dir=</code>参数指定，默认为家目录下的Downloads目录</p>
+<h2 id="开机自动运行"><a href="#开机自动运行" class="headerlink" title="开机自动运行"></a>开机自动运行</h2><p>运行<code>sudo vim /etc/rc.local</code>，添加以下内容<code>su - user -c &quot;aria2c --conf-path=/home/user/aria2/aria2.conf &gt;&gt;/dev/null &amp;&quot;</code>其中的两个user替换为服务器的用户名。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/04/04%E5%A4%9A%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -531,7 +605,7 @@ ip6tables -A INPUT -p tcp ! --dport 22 -j DROP
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-30 14:16:12" itemprop="dateModified" datetime="2023-06-30T14:16:12+08:00">2023-06-30</time>
+                <time title="修改时间：2023-07-03 16:24:03" itemprop="dateModified" datetime="2023-07-03T16:24:03+08:00">2023-07-03</time>
               </span>
 
           
@@ -554,7 +628,10 @@ ip6tables -A INPUT -p tcp ! --dport 22 -j DROP
 <h2 id="安装openssh"><a href="#安装openssh" class="headerlink" title="安装openssh"></a>安装openssh</h2><p>在桌面右键，选择在终端中打开。并在终端中输入以下命令。#后的内容为注释，不需要输入，过程中需要用到网络。<br><code>sudo apt-get update</code>#更新软件商店，sudo命令会要求输入密码，密码为安装linux时的密码。<br><code>sudo apt-get install openssh-server </code>#安装openssh-server</p>
 <h2 id="远程登陆-windows"><a href="#远程登陆-windows" class="headerlink" title="远程登陆-windows"></a>远程登陆-windows</h2><p>使用windows电脑远程控制linux</p>
 <ol>
-<li>获取linux的IP地址，将windows和linux连接到同一局域网下，windows电脑打开路由器或者光猫的管理界面，找到linux的IP地址，并设置ip和mac绑定。</li>
+<li>将服务器连接到光猫后面，在光猫上找到光猫的ip地址比如<code>192.168.1.1</code>和光猫的型号。</li>
+<li>百度搜索该光猫型号的超级密码，搜不到就问运营商，问装宽带的师傅。</li>
+<li>将windows和linux连接到同一局域网下，打开浏览器输入光猫的ip地址，输入找到的超级密码和账户，登录。</li>
+<li>找到linux服务器的IP地址，并设置ip和mac绑定，目的就是让服务器的IP地址不会发生改变。</li>
 <li>在windows上按下win+R打开运行，输入<code>cmd</code>并运行。</li>
 <li>在cmd窗口中输入<code>ssh user@ip</code>,其中user是安装系统时的用户名，ip是linux的IP地址，例如192.168.1.2，需要根据自己的情况修改命令。</li>
 <li>第一次连接时会要求核对服务器公钥，输入<code>yes</code>后回车</li>
@@ -705,7 +782,7 @@ ip6tables -A INPUT -p tcp ! --dport 22 -j DROP
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
