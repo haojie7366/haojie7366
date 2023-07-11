@@ -1,6 +1,6 @@
 #cp -r * ../haojie7366/
 #cd ../haojie7366
-./hpull.sh
+./hpush.sh
 git add --all
 git commit -m "$(date)"
 git push
