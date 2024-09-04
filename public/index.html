@@ -337,7 +337,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/12/13Windwos%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/13/13Windwos%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -351,7 +351,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/12/13Windwos%E5%8F%8C%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">Windows双系统</a>
+            <a href="/2023/07/13/13Windwos%E5%8F%8C%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">Windows双系统</a>
         </h2>
 
         <div class="post-meta">
@@ -361,14 +361,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-12 16:02:00" itemprop="dateCreated datePublished" datetime="2023-07-12T16:02:00+00:00">2023-07-12</time>
+              <time title="创建时间：2023-07-13 00:02:00" itemprop="dateCreated datePublished" datetime="2023-07-13T00:02:00+00:00">2023-07-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-01 05:03:55" itemprop="dateModified" datetime="2024-06-01T05:03:55+00:00">2024-06-01</time>
+                <time title="修改时间：2024-09-04 05:32:10" itemprop="dateModified" datetime="2024-09-04T05:32:10+00:00">2024-09-04</time>
               </span>
 
           
@@ -382,7 +382,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="一、工具准备"><a href="#一、工具准备" class="headerlink" title="一、工具准备"></a>一、工具准备</h2><ol>
+<li>下载Windows官方镜像<br>微软官方Windows10下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows10">https://www.microsoft.com/zh-cn/software-download/windows10</a><br>微软官方Windows11下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows11">https://www.microsoft.com/zh-cn/software-download/windows11</a><br>第三方下载地址：<a target="_blank" rel="noopener" href="https://next.itellyou.cn/">https://next.itellyou.cn/</a><br>第三方下载的也是官方镜像，需要配合迅雷下载，下载速度比官方镜像更快。</li>
+<li>Dism++: <a href="/images/Dism++.zip">点击下载</a></li>
+<li>BOOTICE: <a href="/images/BOOTICEx64.exe">点击下载</a></li>
+<li>推荐准备一个U盘，U盘内安装PE系统，在安装过程中出现意外也可以在PE中有修复系统的可能。<br>下载微PE：<a target="_blank" rel="noopener" href="https://www.wepe.com.cn/download.html">https://www.wepe.com.cn/download.html</a><br><img src="/images/wepe_download.png" alt="微PE下载"><br>选择最新版本的，下载64位版本，下载完成后打开，安装到U盘。<br><img src="/images/wepe_install_U.png" alt="微PE安装"></li>
+</ol>
+<h2 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h2><ol>
+<li>准备安装空间，可以是原本的某个分区，需要格式化这个分区，然后可以跳过步骤3和步骤4。</li>
+<li>也可以将原本的分区减小，新建一个分区用于安装系统。</li>
+<li>此电脑右键-管理-磁盘管理，选择一个磁盘剩余空间大于40G的分区，右键压缩卷，至少压缩40G用于安装系统，更多也可以。<br><img src="/images/%E5%8E%8B%E7%BC%A9%E5%8D%B7.png" alt="压缩卷"></li>
+<li>将刚刚压缩得到的空白空间内右键-新建简单卷，创建一个新的分区，记住盘符。</li>
+<li>解压缩Dism++,双击里面的Dism++x86，运行程序</li>
+<li>文件-释放映像，点第一个浏览，选择Windows系统镜像。</li>
+<li>点第二个浏览，选择新建的分区，完成后点确定，开始释放镜像。<br> <img src="/images/%E9%87%8A%E6%94%BE%E6%98%A0%E5%83%8FD.png" alt="释放映像"></li>
+<li>双击打开BOOTICE，选择BCD编辑—当前系统BCD-智能编辑模式—添加-新建Windows 7&#x2F;8&#x2F;8.1启动项</li>
+<li>编辑新建的引导，修改启动磁盘和启动分区为新系统的磁盘和分区，可以随意修改菜单标题，然后点保存当前系统设置<br> <img src="/images/%E5%BC%95%E5%AF%BC-%E5%8F%8C%E7%B3%BB%E7%BB%9F.png" alt="新建引导"></li>
+<li>左侧框内选择新建的引导，设置为默认，超时时间可以设置为3秒，保存全局设置</li>
+<li>确认DISM++释放镜像已经成功后，重启电脑。</li>
+<li>至此新系统已经安装完成，首次开机会慢一点，跟随提示完成系统初始化设置。至此可以使用新系统了。</li>
+</ol>
+
       
     </div>
 
