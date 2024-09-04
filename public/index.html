@@ -145,7 +145,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/15/16Windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%8A%A8%E8%BF%98%E5%8E%9F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/16/16Windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%8A%A8%E8%BF%98%E5%8E%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -159,7 +159,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/15/16Windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%8A%A8%E8%BF%98%E5%8E%9F/" class="post-title-link" itemprop="url">Windows系统自动还原</a>
+            <a href="/2023/07/16/16Windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%8A%A8%E8%BF%98%E5%8E%9F/" class="post-title-link" itemprop="url">Windows系统自动还原</a>
         </h2>
 
         <div class="post-meta">
@@ -169,14 +169,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-15 16:02:00" itemprop="dateCreated datePublished" datetime="2023-07-15T16:02:00+00:00">2023-07-15</time>
+              <time title="创建时间：2023-07-16 00:02:00" itemprop="dateCreated datePublished" datetime="2023-07-16T00:02:00+00:00">2023-07-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-01 05:04:53" itemprop="dateModified" datetime="2024-06-01T05:04:53+00:00">2024-06-01</time>
+                <time title="修改时间：2024-09-04 08:58:24" itemprop="dateModified" datetime="2024-09-04T08:58:24+00:00">2024-09-04</time>
               </span>
 
           
@@ -190,7 +190,62 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="一、工作原理"><a href="#一、工作原理" class="headerlink" title="一、工作原理"></a>一、工作原理</h2><p>自动还原是划分了三个系统空间，一个空间用于存放系统备份，另外两个空间存放运行的系统。  </p>
+<ol>
+<li>开机后，进入系统1，然后将系统备份还原到系统2，并设置下一次进入系统2。  </li>
+<li>再次开机后进入系统2，然后将系统备份还原到系统1，并设置下一次进入系统1。</li>
+</ol>
+<p>这样每次开机后都可以进入一个新的系统。</p>
+<h2 id="二、工具准备"><a href="#二、工具准备" class="headerlink" title="二、工具准备"></a>二、工具准备</h2><ol>
+<li>下载Windows官方镜像<br>微软官方Windows10下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows10">https://www.microsoft.com/zh-cn/software-download/windows10</a><br>微软官方Windows11下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows11">https://www.microsoft.com/zh-cn/software-download/windows11</a><br>第三方下载地址：<a target="_blank" rel="noopener" href="https://next.itellyou.cn/">https://next.itellyou.cn/</a><br>第三方下载的也是官方镜像，需要配合迅雷下载，下载速度比官方镜像更快。</li>
+<li>Dism++: <a href="/images/Dism++.zip">点击下载</a></li>
+<li>BOOTICE: <a href="/images/BOOTICEx64.exe">点击下载</a></li>
+<li>延长系统更新时间脚本：<a href="/images/%E5%BB%B6%E9%95%BF%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%97%B6%E9%97%B4.reg">点击下载</a></li>
+<li>系统还原文件：<a href="/images/%E7%B3%BB%E7%BB%9F%E8%BF%98%E5%8E%9F.zip">点击下载</a></li>
+<li>推荐准备一个U盘，U盘内安装PE系统，在安装过程中出现意外也可以在PE中有修复系统的可能。<br>下载微PE：<a target="_blank" rel="noopener" href="https://www.wepe.com.cn/download.html">https://www.wepe.com.cn/download.html</a><br><img src="/images/wepe_download.png" alt="微PE下载"><br>选择最新版本的，下载64位版本，下载完成后打开，安装到U盘。<br><img src="/images/wepe_install_U.png" alt="微PE安装"></li>
+</ol>
+<h2 id="三、安装步骤"><a href="#三、安装步骤" class="headerlink" title="三、安装步骤"></a>三、安装步骤</h2><ol>
+<li>准备安装空间，分区内至少有120G的剩余空间。</li>
+<li>双击打开BOOTICE-磁盘镜像-创建VHD，输入文件位置和名字，例如<code>C:\Windows10.vhdx</code>,推荐复制粘贴，可以将C盘换成其他盘，设置虚拟硬盘的容量为40G。<br><img src="/images/%E5%88%9B%E5%BB%BAVHD.png" alt="创建VHD"></li>
+<li>挂载&#x2F;卸载VHD-选择刚刚创建的VHD-挂载</li>
+<li>此电脑右键-管理-磁盘管理，会弹出虚拟硬盘的初始化磁盘，点确定。</li>
+<li>在虚拟硬盘的空白空间内右键-新建简单卷，创建一个新的分区，分区格式为NTFS，记住盘符。</li>
+<li>解压缩Dism++,双击里面的Dism++x86，运行程序</li>
+<li>文件-释放映像，点第一个浏览，选择Windows系统镜像。</li>
+<li>点第二个浏览，选择新建的分区，完成后点确定，开始释放镜像。<br> <img src="/images/%E9%87%8A%E6%94%BE%E6%98%A0%E5%83%8FD.png" alt="释放映像"></li>
+<li>双击打开BOOTICE，选择BCD编辑—当前系统BCD-智能编辑模式—添加-新建Windows 7&#x2F;8&#x2F;8.1启动项</li>
+<li>编辑新建的引导，设备类型为VHD(X)，修改启动磁盘和启动分区为虚拟硬盘所在物理磁盘和物理分区，设备文件为<code>\Windows10.vhdx</code>，推荐复制粘贴，可以随意修改菜单标题，然后点保存当前系统设置<br><img src="/images/%E5%BC%95%E5%AF%BC-vhd.png" alt="新建引导"></li>
+<li>左侧框内选择新建的引导，设置为默认，超时时间可以设置为3秒，保存全局设置</li>
+<li>确认DISM++释放镜像已经成功后，重启电脑。</li>
+<li>跟随提示完成系统初始化设置。</li>
+<li>解压缩系统还原文件，将解压出来的文件和虚拟硬盘文件放到一起。<br><img src="/images/%E7%B3%BB%E7%BB%9F%E8%BF%98%E5%8E%9F%E6%96%87%E4%BB%B6.png" alt="系统还原文件"></li>
+<li>打开BOOTICE，BCD编辑-其他BCD文件，选择BCDto0，修改引导项Windows10(VHDX)的启动磁盘和启动分区。同样的操作，修改BCDto1和BCDto2。</li>
+<li>编辑当前系统BCD，删除新建Windows10(VHDX)引导，重启进入原系统。</li>
+<li>进入原本的系统，右键to1，编辑，找到<code>set dir=C:</code>将盘符C和to1在当前系统所在的盘符一致，保存。如果保存失败，先另存为到桌面，然后复制替换。</li>
+<li>将虚拟硬盘<code>Windows10.vhdx</code>，重命名为<code>Windows10_0.vhdx</code>推荐复制粘贴，即使安装的系统是Windows8&#x2F;Windows11，也要重命名为<code>Windows10_0.vhdx</code></li>
+<li>运行to1，运行完成后会自动重启电脑。</li>
+<li>进入系统后，查看虚拟硬盘所在分区，会多出来一个<code>Windows10_1.vhdx</code>的文件，占用空间为40G，说明进入的是该虚拟硬盘中的系统，虚拟硬盘展开占用的全额空间。</li>
+<li>编辑to1or2，找到<code>set dir=E:</code>将盘符E和to1or2在当前系统所在的盘符一致，保存。如果保存失败，先另存为到桌面，然后复制替换。</li>
+<li>运行to1or2，运行成功后手动重启电脑。</li>
+<li>进入系统后，查看虚拟硬盘所在分区，会多出来一个<code>Windows10_2.vhdx</code>的文件，占用空间为40G，说明进入的是该虚拟硬盘中的系统。</li>
+<li>编辑to0，找到<code>set dir=E:</code>将盘符E和to0在当前系统所在的盘符一致，保存。如果保存失败，先另存为到桌面，然后复制替换。</li>
+<li>运行to0，运行完成后会自动重启电脑。</li>
+<li>进入系统后，查看虚拟硬盘所在分区，<code>Windows10_0.vhdx</code>的文件，占用空间为40G，说明进入的是该虚拟硬盘中的系统。</li>
+<li>搜索更改用户账户控制，改为从不通知。</li>
+<li>创建一个文件夹，发送到桌面快捷方式，用于在自动还原系统中，保存需要的文件。</li>
+<li>按下WIN+R，调出运行框，输入<code>shell:startup</code>，将to1or2脚本复制到弹出的文件夹内。</li>
+<li>运行延长系统更新时间，运行完成后，打开设置-Windows更新-高级选项-暂停更新，将系统更新时间设置为最长3000天。</li>
+<li>手动重启电脑，进入原本的系统，此时如果不运行其他脚本，就可以一制使用原本的系统。</li>
+<li>运行to1，运行完成后会自动重启电脑。进入系统后，查看虚拟硬盘所在分区，<code>Windows10_1.vhdx</code>的文件，占用空间为40G，说明进入的是该虚拟硬盘中的系统。</li>
+<li>手动重启系统，进入系统后，查看虚拟硬盘所在分区，<code>Windows10_2.vhdx</code>的文件，占用空间为40G，说明进入的是该虚拟硬盘中的系统。</li>
+<li>从此自动还原安装成功。</li>
+</ol>
+<h2 id="四、使用方法"><a href="#四、使用方法" class="headerlink" title="四、使用方法"></a>四、使用方法</h2><ol>
+<li>从自动还原系统进入原本的系统，运行to0，进入<code>Windows10_0.vhdx</code>中的系统，然后重启，进入原系统，如果不运行其他文件，就能保持在原系统。</li>
+<li>从原系统进入自动还原系统，运行to1。</li>
+<li>在自动还原系统中作持久化操作，运行to0，在这个系统中做的操作可以永久保存，完成操作后，重启电脑进入原系统，运行to1进入自动还原系统。</li>
+</ol>
+
       
     </div>
 
