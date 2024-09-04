@@ -209,7 +209,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/14/15%E2%80%9CWindwosToGo%E2%80%9D%E5%B0%86%E7%B3%BB%E7%BB%9F%E8%A3%85%E8%BF%9BU%E7%9B%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/15/15%E2%80%9CWindwosToGo%E2%80%9D%E5%B0%86%E7%B3%BB%E7%BB%9F%E8%A3%85%E8%BF%9BU%E7%9B%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -223,7 +223,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/14/15%E2%80%9CWindwosToGo%E2%80%9D%E5%B0%86%E7%B3%BB%E7%BB%9F%E8%A3%85%E8%BF%9BU%E7%9B%98/" class="post-title-link" itemprop="url">“WindwosToGo”将系统装进U盘</a>
+            <a href="/2023/07/15/15%E2%80%9CWindwosToGo%E2%80%9D%E5%B0%86%E7%B3%BB%E7%BB%9F%E8%A3%85%E8%BF%9BU%E7%9B%98/" class="post-title-link" itemprop="url">“WindwosToGo”将系统装进U盘</a>
         </h2>
 
         <div class="post-meta">
@@ -233,14 +233,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-14 16:02:00" itemprop="dateCreated datePublished" datetime="2023-07-14T16:02:00+00:00">2023-07-14</time>
+              <time title="创建时间：2023-07-15 00:02:00" itemprop="dateCreated datePublished" datetime="2023-07-15T00:02:00+00:00">2023-07-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-01 06:52:28" itemprop="dateModified" datetime="2024-06-01T06:52:28+00:00">2024-06-01</time>
+                <time title="修改时间：2024-09-04 07:05:49" itemprop="dateModified" datetime="2024-09-04T07:05:49+00:00">2024-09-04</time>
               </span>
 
           
@@ -254,7 +254,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>一、工具准备  </p>
+<ol>
+<li>下载Windows官方镜像<br>微软官方Windows10下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows10">https://www.microsoft.com/zh-cn/software-download/windows10</a><br>微软官方Windows11下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows11">https://www.microsoft.com/zh-cn/software-download/windows11</a><br>第三方下载地址：<a target="_blank" rel="noopener" href="https://next.itellyou.cn/">https://next.itellyou.cn/</a><br>第三方下载的也是官方镜像，需要配合迅雷下载，下载速度比官方镜像更快。</li>
+<li>Dism++: <a href="/images/Dism++.zip">点击下载</a></li>
+<li>BOOTICE: <a href="/images/BOOTICEx64.exe">点击下载</a></li>
+<li>准备一个U盘用于安装系统，最好是移动固态硬盘，至少32G。</li>
+<li>推荐再准备一个U盘，U盘内安装PE系统，在安装过程中出现意外也可以在PE中有修复系统的可能。<br>下载微PE：<a target="_blank" rel="noopener" href="https://www.wepe.com.cn/download.html">https://www.wepe.com.cn/download.html</a><br><img src="/images/wepe_download.png" alt="微PE下载"><br>选择最新版本的，下载64位版本，下载完成后打开，安装到U盘。<br><img src="/images/wepe_install_U.png" alt="微PE安装"></li>
+</ol>
+<h2 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h2><ol>
+<li>先安装到电脑的硬盘，准备安装空间，分区内至少有40G的剩余空间。</li>
+<li>双击打开BOOTICE-磁盘镜像-创建VHD，输入文件位置和名字，例如<code>C:\Windows10.vhdx</code>，推荐复制粘贴，设置虚拟硬盘的容量，如果是32G的U盘，虚拟硬盘容量设置为25G，64G及以上设置为40G或更多。<br><img src="/images/%E5%88%9B%E5%BB%BAVHD.png" alt="创建VHD"></li>
+<li>挂载&#x2F;卸载VHD-选择刚刚创建的VHD-挂载</li>
+<li>此电脑右键-管理-磁盘管理，会弹出虚拟硬盘的初始化磁盘，点确定。</li>
+<li>在虚拟硬盘的空白空间内右键-新建简单卷，创建一个新的分区，分区格式为NTFS，记住盘符。</li>
+<li>解压缩Dism++,双击里面的Dism++x86，运行程序</li>
+<li>文件-释放映像，点第一个浏览，选择Windows系统镜像。</li>
+<li>点第二个浏览，选择新建的分区，完成后点确定，开始释放镜像。<br> <img src="/images/%E9%87%8A%E6%94%BE%E6%98%A0%E5%83%8FD.png" alt="释放映像"></li>
+<li>双击打开BOOTICE，选择BCD编辑—当前系统BCD-智能编辑模式—添加-新建Windows 7&#x2F;8&#x2F;8.1启动项</li>
+<li>编辑新建的引导，设备类型为VHD(X)，修改启动磁盘和启动分区为虚拟硬盘所在物理磁盘和物理分区，设备文件为<code>\Windows10.vhdx</code>，推荐复制粘贴，可以随意修改菜单标题，然后点保存当前系统设置<br><img src="/images/%E5%BC%95%E5%AF%BC-vhd.png" alt="新建引导"></li>
+<li>左侧框内选择新建的引导，设置为默认，超时时间可以设置为3秒，保存全局设置</li>
+<li>确认DISM++释放镜像已经成功后，重启电脑。</li>
+<li>跟随提示完成系统初始化设置，最好在设置-Windows更新，完成所有系统更新和驱动安装。</li>
+<li>打开BOOTICE，选择BCD编辑—当前系统BCD-智能编辑模式—选择刚刚建立的引导，删除。</li>
+<li>重启电脑，进入原本的系统。</li>
+<li>插入U盘，打开此电脑，找到U盘，确保U盘剩余空间大于40G（32GU盘大于25G），右键-属性，确保U盘分区格式为NTFS，如果不是，需要格式话磁盘，U盘-右键-格式化，选择分区格式为NTFS。</li>
+<li>找到刚刚创建的虚拟硬盘文件，例如<code>C:\Windows10.vhdx</code>是在C盘根目录下，复制到U盘的NTFS分区内。</li>
+<li>双击U盘内的虚拟硬盘文件，打开会弹出一个新的分区，记住分区的盘符。</li>
+<li>右键此电脑-管理-磁盘管理</li>
+<li>找到U盘，右键，压缩卷，推荐压缩100MB的空间。</li>
+<li>在U盘未分配部分右键、新建卷，新建一个分区，分区格式为FAT32，记住分区的盘符。</li>
+<li>在电脑左下角WIN标志处右键，打开powershell(管理员)，或者终端管理员。<br><img src="/images/powershell%E7%AE%A1%E7%90%86%E5%91%98.png" alt="powershell"></li>
+<li>输入命令<code>bcdboot E:\Windows -s F:</code>，其中E:\Windows为打开虚拟硬盘新产生的盘符，F:是U盘FAT32分区的盘符</li>
+<li>打开浏览器，搜索XX笔记本或XX主板的启动热键或如何从U盘启动，通常方法是在开启的时候不停的按下某一个按键。<br><img src="/images/U%E7%9B%98%E5%90%AF%E5%8A%A8%E6%96%B9%E6%B3%95.png" alt="U盘启动方法"></li>
+<li>选择USB&#x2F;UDISK字样或者你的U盘品牌<br><img src="/images/U%E7%9B%98%E5%90%AF%E5%8A%A8.png" alt="U盘启动"></li>
+<li>进入U盘内的系统，安装完成。</li>
+</ol>
+
       
     </div>
 
@@ -273,7 +309,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/13/14%E4%BD%BF%E7%94%A8VHD(X)%E5%AE%89%E8%A3%85Windows%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/14/14%E4%BD%BF%E7%94%A8VHD(X)%E5%AE%89%E8%A3%85Windows%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -287,7 +323,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/13/14%E4%BD%BF%E7%94%A8VHD(X)%E5%AE%89%E8%A3%85Windows%E5%8F%8C%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">使用VHD(X)安装Windows双系统</a>
+            <a href="/2023/07/14/14%E4%BD%BF%E7%94%A8VHD(X)%E5%AE%89%E8%A3%85Windows%E5%8F%8C%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">使用VHD(X)安装Windows双系统</a>
         </h2>
 
         <div class="post-meta">
@@ -297,14 +333,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-07-13 16:02:00" itemprop="dateCreated datePublished" datetime="2023-07-13T16:02:00+00:00">2023-07-13</time>
+              <time title="创建时间：2023-07-14 00:02:00" itemprop="dateCreated datePublished" datetime="2023-07-14T00:02:00+00:00">2023-07-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-01 05:03:47" itemprop="dateModified" datetime="2024-06-01T05:03:47+00:00">2024-06-01</time>
+                <time title="修改时间：2024-09-04 06:27:23" itemprop="dateModified" datetime="2024-09-04T06:27:23+00:00">2024-09-04</time>
               </span>
 
           
@@ -318,7 +354,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>一、工具准备  </p>
+<ol>
+<li>下载Windows官方镜像<br>微软官方Windows10下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows10">https://www.microsoft.com/zh-cn/software-download/windows10</a><br>微软官方Windows11下载地址：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download/windows11">https://www.microsoft.com/zh-cn/software-download/windows11</a><br>第三方下载地址：<a target="_blank" rel="noopener" href="https://next.itellyou.cn/">https://next.itellyou.cn/</a><br>第三方下载的也是官方镜像，需要配合迅雷下载，下载速度比官方镜像更快。</li>
+<li>Dism++: <a href="/images/Dism++.zip">点击下载</a></li>
+<li>BOOTICE: <a href="/images/BOOTICEx64.exe">点击下载</a></li>
+<li>推荐准备一个U盘，U盘内安装PE系统，在安装过程中出现意外也可以在PE中有修复系统的可能。<br>下载微PE：<a target="_blank" rel="noopener" href="https://www.wepe.com.cn/download.html">https://www.wepe.com.cn/download.html</a><br><img src="/images/wepe_download.png" alt="微PE下载"><br>选择最新版本的，下载64位版本，下载完成后打开，安装到U盘。<br><img src="/images/wepe_install_U.png" alt="微PE安装"></li>
+</ol>
+<h2 id="二、安装步骤"><a href="#二、安装步骤" class="headerlink" title="二、安装步骤"></a>二、安装步骤</h2><ol>
+<li>准备安装空间，分区内至少有40G的剩余空间。</li>
+<li>双击打开BOOTICE-磁盘镜像-创建VHD，输入文件位置和名字，例如<code>C:\Windows10.vhdx</code>,推荐复制粘贴,设置虚拟硬盘的容量，40G或更多。<br><img src="/images/%E5%88%9B%E5%BB%BAVHD.png" alt="创建VHD"></li>
+<li>挂载&#x2F;卸载VHD-选择刚刚创建的VHD-挂载</li>
+<li>此电脑右键-管理-磁盘管理，会弹出虚拟硬盘的初始化磁盘，点确定。</li>
+<li>在虚拟硬盘的空白空间内右键-新建简单卷，创建一个新的分区，分区格式为NTFS，记住盘符。</li>
+<li>解压缩Dism++,双击里面的Dism++x86，运行程序</li>
+<li>文件-释放映像，点第一个浏览，选择Windows系统镜像。</li>
+<li>点第二个浏览，选择新建的分区，完成后点确定，开始释放镜像。<br> <img src="/images/%E9%87%8A%E6%94%BE%E6%98%A0%E5%83%8FD.png" alt="释放映像"></li>
+<li>双击打开BOOTICE，选择BCD编辑—当前系统BCD-智能编辑模式—添加-新建Windows 7&#x2F;8&#x2F;8.1启动项</li>
+<li>编辑新建的引导，设备类型为VHD(X)，修改启动磁盘和启动分区为虚拟硬盘所在物理磁盘和物理分区，设备文件为<code>\Windows10.vhdx</code>，推荐复制粘贴，可以随意修改菜单标题，然后点保存当前系统设置<br><img src="/images/%E5%BC%95%E5%AF%BC-vhd.png" alt="新建引导"></li>
+<li>左侧框内选择新建的引导，设置为默认，超时时间可以设置为3秒，保存全局设置</li>
+<li>确认DISM++释放镜像已经成功后，重启电脑。</li>
+<li>至此新系统已经安装完成，首次开机会慢一点，跟随提示完成系统初始化设置。至此可以使用新系统了。</li>
+</ol>
+
       
     </div>
 
@@ -368,7 +426,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-04 05:32:10" itemprop="dateModified" datetime="2024-09-04T05:32:10+00:00">2024-09-04</time>
+                <time title="修改时间：2024-09-04 06:16:34" itemprop="dateModified" datetime="2024-09-04T06:16:34+00:00">2024-09-04</time>
               </span>
 
           
@@ -392,7 +450,7 @@
 <li>准备安装空间，可以是原本的某个分区，需要格式化这个分区，然后可以跳过步骤3和步骤4。</li>
 <li>也可以将原本的分区减小，新建一个分区用于安装系统。</li>
 <li>此电脑右键-管理-磁盘管理，选择一个磁盘剩余空间大于40G的分区，右键压缩卷，至少压缩40G用于安装系统，更多也可以。<br><img src="/images/%E5%8E%8B%E7%BC%A9%E5%8D%B7.png" alt="压缩卷"></li>
-<li>将刚刚压缩得到的空白空间内右键-新建简单卷，创建一个新的分区，记住盘符。</li>
+<li>在刚刚压缩得到的空白空间内右键-新建简单卷，创建一个新的分区，分区格式为NTFS，记住盘符。</li>
 <li>解压缩Dism++,双击里面的Dism++x86，运行程序</li>
 <li>文件-释放映像，点第一个浏览，选择Windows系统镜像。</li>
 <li>点第二个浏览，选择新建的分区，完成后点确定，开始释放镜像。<br> <img src="/images/%E9%87%8A%E6%94%BE%E6%98%A0%E5%83%8FD.png" alt="释放映像"></li>
