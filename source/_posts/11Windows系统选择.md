@@ -2,9 +2,11 @@
 title: Windows系统选择
 date: 2023-07-11 00:02:00
 tags:
+hidden: true
 ---
 # Windows系统选择
 推荐的系统有Windows7、Windows8.1、Windows10、Windows11，更早的系统可能已经无法安装常用的软件了，所以使用起来有许多的限制。这四个系统使用方式都差不多，预装Win7的电脑也能跑Win11,这边推荐觉得哪个好看就选择哪个。
+<!-- more -->
 ## Windows 7
 ![Windows 7](/images/W7.png)
 ## Windows 8.1

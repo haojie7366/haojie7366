@@ -2,25 +2,27 @@
 title: 使用VHD(X)安装Windows双系统
 date: 2023-07-14 00:02:00
 tags:
+hidden: true
 ---
-一、工具准备  
+## 一、工具准备  
 1. 下载Windows官方镜像  
 微软官方Windows10下载地址：  
 <https://www.microsoft.com/zh-cn/software-download/windows10>   
 微软官方Windows11下载地址：  
 <https://www.microsoft.com/zh-cn/software-download/windows11>  
+<!-- more -->
 第三方下载地址：<https://next.itellyou.cn/>  
 第三方下载的也是官方镜像，需要配合迅雷下载，下载速度比官方镜像更快。
-1. Dism++: [点击下载](/images/Dism++.zip)
-2. BOOTICE: [点击下载](/images/BOOTICEx64.exe)
-3. 推荐准备一个U盘，U盘内安装PE系统，在安装过程中出现意外也可以在PE中有修复系统的可能。   
+2. Dism++: [点击下载](/images/Dism++.zip)
+3. BOOTICE: [点击下载](/images/BOOTICEx64.exe)
+4. 推荐准备一个U盘，U盘内安装PE系统，在安装过程中出现意外也可以在PE中有修复系统的可能。   
 下载微PE：<https://www.wepe.com.cn/download.html>  
 ![微PE下载](/images/wepe_download.png)
 选择最新版本的，下载64位版本，下载完成后打开，安装到U盘。
 ![微PE安装](/images/wepe_install_U.png)
 ## 二、安装步骤
 1. 准备安装空间，分区内至少有40G的剩余空间。
-2. 双击打开BOOTICE-磁盘镜像-创建VHD，输入文件位置和名字，例如`C:\Windows10.vhdx`,推荐复制粘贴,设置虚拟硬盘的容量，40G或更多。
+2. 双击打开BOOTICE-磁盘镜像-创建VHD，输入文件位置和名字，例如`C:\Windows10.vhdx`,推荐复制粘贴，可以将C盘换成其他盘，设置虚拟硬盘的容量，40G或更多。
    ![创建VHD](/images/创建VHD.png)
 3. 挂载/卸载VHD-选择刚刚创建的VHD-挂载
 4. 此电脑右键-管理-磁盘管理，会弹出虚拟硬盘的初始化磁盘，点确定。
@@ -35,3 +37,4 @@ tags:
 11. 左侧框内选择新建的引导，设置为默认，超时时间可以设置为3秒，保存全局设置
 12. 确认DISM++释放镜像已经成功后，重启电脑。
 13. 至此新系统已经安装完成，首次开机会慢一点，跟随提示完成系统初始化设置。至此可以使用新系统了。
+14. 后续如果使用旧系统，确保虚拟硬盘所在分区有足够空间用于展开虚拟硬盘，否则第二系统将无法启动。
