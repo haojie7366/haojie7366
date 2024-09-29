@@ -1,5 +1,6 @@
 source path.sh
 npm i
+hexo clean
 hexo g 
 cp -r public/* ../haojie7366.github.io/
 cd ../haojie7366.github.io
